@@ -1,8 +1,14 @@
 import pandas as pd
+import sys
+try:
+    # Load the dataset
+    df = pd.read_csv('daata/students.csv')
+    print("✅ File loaded Successfully")
 
-# Load the dataset
-df = pd.read_csv('data/students.csv')
-
+except FileNotFoundError as e:
+    print("❌ Sorry File not found plz try again")
+    print(f"🔍 System Error Details: {e}")
+    sys.exit(1) 
 # Custom Functions
 def heading():      # Created a function because we are gonna this block of code frequently
     print("="*50)
