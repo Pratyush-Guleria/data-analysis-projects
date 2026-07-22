@@ -10,7 +10,7 @@ except FileNotFoundError as e:
     print("❌ Sorry File not found plz try again")
     print(f"🔍 System Error Details: {e}")
     sys.exit(1)     # (1) means error 
-    
+
 # Custom Functions
 def heading():      # Created a function because we are gonna this block of code frequently
     print("="*50)
@@ -22,7 +22,7 @@ def end_heading():
 # 1. VIEWING THE FIRST 5 ROWS
 # =====================================================================
 heading()
-print("📌 1. FIRST 5 ROWS OF THE DATASET")
+print("📌 FIRST 5 ROWS OF THE DATASET")
 heading()
 
 print(df.head())
@@ -34,7 +34,7 @@ end_heading()
 # 2. DATASET DIMENSIONS (ROWS & COLUMNS)
 # =====================================================================
 heading()
-print("📊 2. DATASET DIMENSIONS")
+print("📊 DATASET DIMENSIONS")
 heading()
 
 print(f"Total Number of Rows    : {len(df)}")
@@ -47,7 +47,7 @@ end_heading()
 # 3. COLUMN NAMES LISTING
 # =====================================================================
 heading()
-print("📋 3. ALL COLUMN NAMES")
+print("📋 ALL COLUMN NAMES")
 heading()
 
 # Loop through column names with a serial number starting from 1
@@ -61,7 +61,7 @@ end_heading()
 # 4. DATA TYPES CHECKING
 # =====================================================================
 heading()
-print("⚙️ 4. DATA TYPE OF EVERY COLUMN")
+print("⚙️ DATA TYPE OF EVERY COLUMN")
 heading()
 
 print(df.dtypes)
@@ -73,7 +73,7 @@ end_heading()
 # 5. MISSING VALUES ANALYSIS
 # =====================================================================
 heading()
-print("🔍 5. MISSING VALUES IN EACH COLUMN")
+print("🔍 MISSING VALUES IN EACH COLUMN")
 heading()
 
 # Unpack key-value pairs to print each column name and its total missing values
@@ -87,7 +87,7 @@ end_heading()
 # 6. TOTAL MISSING VALUES IN DATASET
 # =====================================================================
 heading()
-print("🔍 6. TOTAL MISSING VALUES IN DATASET")
+print("🔍 TOTAL MISSING VALUES IN DATASET")
 heading()
 
 print(f"Total Missing Values : {df.isna().sum().sum()}")
@@ -99,7 +99,7 @@ end_heading()
 # 7. DUPLICATE ROWS IN DATASET
 # =====================================================================
 heading()
-print("🔍 7. DUPLICATE ROWS IN DATASET")
+print("🔍 DUPLICATE ROWS IN DATASET")
 heading()
 
 print(f"Number of Duplicate Rows : {df.duplicated().sum()}")
@@ -111,7 +111,7 @@ end_heading()
 # 8. NUMERICAL COLUMNS 
 # =====================================================================
 heading()
-print("🔍 8. NUMERICAL COLUMNS")
+print("🔍 NUMERICAL COLUMNS")
 heading()
 
 print(f"Numerical Columns : {df.select_dtypes(include='number').columns.tolist()}")
@@ -123,7 +123,7 @@ end_heading()
 # 9. CATEGORICAL COLUMNS
 # =====================================================================
 heading()
-print("🔍 9. CATEGORICAL COLUMNS")
+print("🔍 CATEGORICAL COLUMNS")
 heading()
 
 print(f"Categorical Columns : {df.select_dtypes(include=['string', 'object']).columns.tolist()}")
@@ -135,7 +135,7 @@ end_heading()
 # 10. SUMMARY STATISTICS OF NUMERICAL COLUMNS
 # =====================================================================
 heading()
-print("📊 10. SUMMARY STATISTICS OF NUMERICAL COLUMNS")
+print("📊 SUMMARY STATISTICS OF NUMERICAL COLUMNS")
 heading()
 
 print(f"Summary Statistics (NUMERICAL COLUMNS) : {df.select_dtypes(include=['number']).describe()}")    # Describle helps to find mean, max, min
@@ -147,7 +147,7 @@ end_heading()
 # 11. MEMORY USAGE BY DATASET
 # =====================================================================
 heading()
-print("💻 11. MEMORY USAGE BY DATASET")
+print("💻 MEMORY USAGE BY DATASET")
 end_heading()
                                                            # deep = True helps to find exact memory 
 print(f"Memory Usage : {df.memory_usage(deep=True).sum()/1024:.2f} KB") # sum helps to add memory usage of all columns
@@ -158,7 +158,7 @@ end_heading()
 # 12. GENDER DISTRIBUTION
 # =====================================================================
 heading()
-print("👦🏻👧🏻 12. GENDER DISTRIBUTION")
+print("👦🏻👧🏻 GENDER DISTRIBUTION")
 heading()
 
 for gender, count in df['gender'].value_counts().items():
@@ -171,7 +171,7 @@ end_heading()
 # 13. LUNCH DISTRIBUTION
 # =====================================================================
 heading()
-print("🍱 13. LUNCH DISTRIBUTION")
+print("🍱 LUNCH DISTRIBUTION")
 heading()
 
 for lunch, count in df['lunch'].value_counts().items():
@@ -184,7 +184,7 @@ end_heading()
 # 14. TEST PREPARATION
 # =====================================================================
 heading()
-print("📝 14. TEST PREPARATION")
+print("📝 TEST PREPARATION")
 heading()
 
 for test, count in df['test preparation course'].value_counts().items():
@@ -197,7 +197,7 @@ end_heading()
 # 15. RACE / ETHNICITY GROUP 
 # =====================================================================
 heading()
-print("🔍 15. RACE / ETHNICITY GROUP")
+print("🔍 RACE / ETHNICITY GROUP")
 heading()
 
 for group, count in df['race/ethnicity'].value_counts().items():
@@ -210,7 +210,7 @@ end_heading()
 # 16. PARENT EDUCATION
 # =====================================================================
 heading()
-print("📚 16. Parent Education")
+print("📚 Parent Education")
 heading()
 
 for parents_edu, count in df["parental level of education"].value_counts().items():
@@ -223,7 +223,7 @@ end_heading()
 # 17. AVERAGE MATH SCORE
 # =====================================================================
 heading()
-print("🧮 17. AVERAGE MATH SCORE")
+print("🧮 AVERAGE MATH SCORE")
 heading()
 
 avg_math_score = df["math score"].mean()        # Created variable because mean can't be used in for loop, mean only give 1 value so for loop will throw an error 
@@ -236,7 +236,7 @@ end_heading()
 # 18. AVERAGE READING SCORE
 # =====================================================================
 heading()
-print("📖 18. AVERAGE READING SCORE")
+print("📖 AVERAGE READING SCORE")
 heading()
 
 avg_reading_score = df['reading score'].mean()
@@ -249,7 +249,7 @@ end_heading()
 # 19. AVERAGE WRITING SCORE
 # ===================================================================== 
 heading()
-print("✍️ 19. AVERAGE WRITING SCORE")
+print("✍️ AVERAGE WRITING SCORE")
 heading()
 
 avg_writing_score = df["writing score"].mean()
@@ -262,7 +262,7 @@ end_heading()
 # 20. HIGHEST MATH SCORE WITH STUDENTS NAME
 # =====================================================================
 heading()
-print("📈 20. HIGHEST MATH SCORE WITH STUDENT NAME")
+print("📈 HIGHEST MATH SCORE WITH STUDENT NAME")
 heading()
 
 highest_math_score = df["math score"].max()
@@ -277,7 +277,7 @@ print(max_student_row)
 # 21. LOWEST MATH SCORE WITH STUDENTS NAME
 # =====================================================================
 heading()
-print("📉 21. LOWEST MATH SCORE WITH STUDENTS NAME")
+print("📉 LOWEST MATH SCORE WITH STUDENTS NAME")
 heading()
 
 lowest_math_score = df["math score"].min()
@@ -294,7 +294,7 @@ end_heading()
 # 22. TOP 10 STUDENTS BASED ON MATH SCORE
 # =====================================================================
 heading()
-print("🔝 22. TOP 10 STUDENTS BASED ON MATH SCORE")
+print("🔝 TOP 10 STUDENTS BASED ON MATH SCORE")
 heading()
 
 top_10_stu = df.nlargest(10, 'math score')
@@ -307,7 +307,7 @@ end_heading()
 # 23. BOTTOM 10 STUDENTS BASED ON MATH SCORE
 # =====================================================================
 heading()
-print("⬇️ 23. BOTTOM 10 STUDENTS BASED ON MATH SCORE")
+print("⬇️ BOTTOM 10 STUDENTS BASED ON MATH SCORE")
 heading()
 
 bottom_10_stu = df.nsmallest(10, "math score")
@@ -320,7 +320,7 @@ end_heading()
 # 24. AVERAGE MATH SCORE OF MALE AND FEMALE
 # =====================================================================
 heading()
-print("📊 24. AVERAGE MATH SCORE OF MALE AND FEMALE")
+print("📊 AVERAGE MATH SCORE OF MALE AND FEMALE")
 heading()
 
 math_avg_by_gender = df.groupby("gender")["math score"].mean() # General syntax: df.groupby('category_column')['numeric_column'].aggregation_function()
