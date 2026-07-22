@@ -329,3 +329,45 @@ for gender, avg_score in math_avg_by_gender.items():
     print(f" ➤ {gender:<15} : {avg_score:.2f} marks")
 
 end_heading()
+
+
+# =====================================================================
+# 25. AVERAGE MATH SCORE BY PARENTAL EDUCATION
+# =====================================================================
+heading()
+print("📊 AVERAGE MATH SCORE BY PARENTAL EDUCATION")
+heading()
+
+avg_math_parental_edu = df.groupby("parental level of education")["math score"].mean()
+for parent_edu, score in avg_math_parental_edu.items():
+    print(f" ➤ {parent_edu:<20} : {score:.2f} marks")
+
+end_heading()
+
+
+# =====================================================================
+# 26. AVERAGE READING SCORE BY PARENTAL EDUCATION
+# =====================================================================
+heading()
+print("📊 AVERAGE MATH SCORE BY PARENTAL EDUCATION")
+heading()
+
+avg_reading_parental_edu = df.groupby("parental level of education")["reading score"].mean()
+for parent_edu, score in avg_reading_parental_edu.items():
+    print(f" ➤ {parent_edu:<20} : {score:.2f} marks")
+
+end_heading()
+
+
+# =====================================================================
+# 27. 
+# =====================================================================
+heading()
+print("📊 AVERAGE MATH SCORE BY PARENTAL EDUCATION")
+heading()
+
+avg_writing_parental_edu = df.groupby("parental level of education")["writing score"].mean()
+for parent_edu, score in avg_writing_parental_edu.items():
+    print(f" ➤ {parent_edu:<20} : {score:.2f} marks")
+
+end_heading()
