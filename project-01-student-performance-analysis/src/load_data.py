@@ -349,7 +349,7 @@ end_heading()
 # 26. AVERAGE READING SCORE BY PARENTAL EDUCATION
 # =====================================================================
 heading()
-print("📊 AVERAGE MATH SCORE BY PARENTAL EDUCATION")
+print("📊 AVERAGE READING SCORE BY PARENTAL EDUCATION")
 heading()
 
 avg_reading_parental_edu = df.groupby("parental level of education")["reading score"].mean()
@@ -360,10 +360,10 @@ end_heading()
 
 
 # =====================================================================
-# 27. 
+# 27. AVERAGE WRITING SCORE BY PARENTAL EDUCATION
 # =====================================================================
 heading()
-print("📊 AVERAGE MATH SCORE BY PARENTAL EDUCATION")
+print("📊 AVERAGE WRITING SCORE BY PARENTAL EDUCATION")
 heading()
 
 avg_writing_parental_edu = df.groupby("parental level of education")["writing score"].mean()
