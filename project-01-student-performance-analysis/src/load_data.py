@@ -3,7 +3,7 @@ import sys
 try:
     # Load the dataset
     df = pd.read_csv('data/students.csv')
-    print("✅ File loaded Successfully")
+    print("✅ File loaded Successfully\n")
 
 except FileNotFoundError as e:
 
@@ -369,5 +369,105 @@ heading()
 avg_writing_parental_edu = df.groupby("parental level of education")["writing score"].mean()
 for parent_edu, score in avg_writing_parental_edu.items():
     print(f" ➤ {parent_edu:<20} : {score:.2f} marks")
+
+end_heading()
+
+
+# =====================================================================
+# 28. AVERAGE SCORES BY GENDER FOR ALL SUBJECTS
+# =====================================================================
+heading()
+print("🧑‍🤝‍🧑 AVERAGE SCORES BY GENDER FOR ALL SUBJECTS")
+heading()
+
+gender_score_analysis = df.groupby("gender")[["math score", "reading score", "writing score"]].mean()
+for status, score in gender_score_analysis.iterrows():
+    print(f" ➤ GENDER          : {status.upper()}")
+    print(f"   MATH AVERAGE    : {score["math score"]:.2f} marks")
+    print(f"   READING AVERAGE : {score["reading score"]:.2f} marks")
+    print(f"   WRITING AVERAGE : {score["writing score"]:.2f} marks\n")
+
+end_heading()
+
+
+# =====================================================================
+# 29. TEST PREPARATION COURSE VS SCORES ANALYSIS
+# =====================================================================
+heading()
+print("📊 TEST PREPARATION COURSE VS SCORES ANALYSIS")
+heading()
+
+score_analysis = df.groupby("test preparation course")[["math score", "reading score", "writing score"]].mean()
+for status, score in score_analysis.iterrows():
+    print(f" ➤ COURSE STATUS   : {status.upper()}")
+    print(f"   MATH AVERAGE    : {score["math score"]:.2f} marks")
+    print(f"   READING AVERAGE : {score["reading score"]:.2f} marks")
+    print(f"   WRITING AVERAGE : {score["writing score"]:.2f} marks\n")
+
+end_heading()
+
+
+# =====================================================================
+# 30. LUNCH TYPE VS STUDENT PERFORMANCE ANALYSIS
+# =====================================================================
+heading()
+print("📊 LUNCH TYPE VS STUDENT PERFORMANCE ANALYSIS")
+heading()
+
+lunch_impact_analysis = df.groupby("lunch")[["math score", "reading score", "writing score"]].mean()
+for status, score in lunch_impact_analysis.iterrows():
+    print(f" ➤ LUNCH           : {status.upper()}")
+    print(f"   MATH AVERAGE    : {score["math score"]:.2f} marks")
+    print(f"   READING AVERAGE : {score["reading score"]:.2f} marks")
+    print(f"   WRITING AVERAGE : {score["writing score"]:.2f} marks\n")
+
+end_heading()
+
+
+# =====================================================================
+# 31. RACE AND ETHNICITY VS STUDENT AVERAGE SCORES
+# =====================================================================
+heading()
+print("🔍 RACE AND ETHNICITY VS STUDENT AVERAGE SCORES")
+heading()
+
+race_ethnicity_analysis = df.groupby("race/ethnicity")[["math score", "reading score", "writing score"]].mean()
+for status, score in race_ethnicity_analysis.iterrows():
+    print(f" ➤ RACE/ETHNICITY  : {status.upper()}")
+    print(f"   MATH AVERAGE    : {score["math score"]:.2f} marks")
+    print(f"   READING AVERAGE : {score["reading score"]:.2f} marks")
+    print(f"   WRITING AVERAGE : {score["writing score"]:.2f} marks\n")
+
+end_heading()
+
+
+# =====================================================================
+# 32. OVERALL SCORE FEATURE ENGINEERING & RANKINGS
+# =====================================================================
+heading()
+print("🏆 TOP 10 STUDENTS BASED ON OVERALL SCORE")
+heading()
+
+df["OVERALL SCORE"] = (df["math score"] + df["reading score"] + df["writing score"])/3
+
+top_10_students = df.nlargest(10, "OVERALL SCORE").round(2)
+
+for index, row in top_10_students.iterrows():
+    print(f" ➤ GENDER : {row['gender']:<8} | RACE : {row['race/ethnicity']:<8} | SCORE : {row['OVERALL SCORE']}")
+
+end_heading()
+
+
+# BOTTOM 10 STUDENTS 
+heading()
+print("📉 BOTTOM 10 STUDENTS BASED ON OVERALL SCORE")
+heading()
+
+bottom_10_students = df.nsmallest(10, "OVERALL SCORE").round(2)
+
+for index, row in bottom_10_students.iterrows():
+    print(f" ➤ GENDER : {row['gender']:<8} | RACE : {row['race/ethnicity']:<8} | SCORE : {row['OVERALL SCORE']}")
+
+
 
 end_heading()
