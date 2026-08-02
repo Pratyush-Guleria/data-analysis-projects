@@ -9,7 +9,7 @@ The goal of this repository is to improve my problem-solving skills by working o
 ## Projects
 
 - Project 01 — Student Performance Analysis *(Completed)*
-- Project 02 — Coming In progress
+- Project 02 —  In progress
 
 ## Tech Stack
 
