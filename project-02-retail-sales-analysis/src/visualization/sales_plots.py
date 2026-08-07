@@ -93,7 +93,7 @@ def plot_sub_category_sales(data):
 # Function 3
 def plot_country_sales_bar(data):
     """
-    Plot countries sales <=80%
+    Plot countries contributing up to the given cumulative sales threshold.
     """
     plt.figure(figsize = (12,10))
 
@@ -130,5 +130,52 @@ def plot_country_sales_bar(data):
     )
 
     plt.tight_layout()
+
+    return plt.gcf()
+
+
+# Function 4
+def plot_country_sales_pareto_line(data):
+    """
+    Plot countries contributing up to the given cumulative sales threshold.
+    """
+
+    plt.figure(figsize=(15, 6))
+
+    sns.lineplot(
+        data = data,
+        x = "Country",
+        y = "Cum_Percentage",
+        color = "red",
+        marker = "o",
+        linewidth = 2,
+        sort = False
+    )
+
+    plt.title(
+        "Cumulative Sales Contribution of Top Countries", 
+        fontsize=14, 
+        fontweight="bold", 
+        pad=15
+    )
+
+    plt.xlabel(
+        "Countries", 
+        fontsize=10, 
+        fontweight="bold", 
+        labelpad=10
+    )
+
+    plt.ylabel(
+        "Cumulative Percentage (%)", 
+        fontsize=10, 
+        fontweight="bold", 
+        labelpad=10
+    )
+
+    plt.xticks(
+        rotation=45, 
+        ha='right'
+    )
 
     return plt.gcf()
