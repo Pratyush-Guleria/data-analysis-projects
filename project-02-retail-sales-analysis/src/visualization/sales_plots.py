@@ -230,3 +230,47 @@ def plot_profit_vs_sales(data):
     plt.tight_layout()
 
     return plt.gcf()
+
+
+# Function 6
+def plot_discount_vs_profit(data):
+    """
+    Plot discount vs profit graph
+    """
+
+    plt.figure(figsize = (15, 8))
+
+    sns.regplot(
+        data = data,
+        x = "Discount",
+        y = "Profit",
+        scatter_kws={"color": "royalblue", "alpha": 0.6, "s": 50}, 
+        line_kws={"color": "crimson", "linewidth": 2.5}
+    )
+
+    plt.title(
+        "Discount VS Profit", 
+        fontsize = 20, 
+        fontweight = "bold", 
+        pad = 15
+    )
+
+    plt.xlabel(
+        "Discount", 
+        fontsize = 20, 
+        fontweight = "bold", 
+        labelpad = 15
+    )
+
+    plt.ylabel(
+        "Profit", 
+        fontsize = 20, 
+        fontweight = "bold", 
+        labelpad = 15
+    )
+
+    plt.grid(True, linestyle = "--", alpha = 0.5)
+
+    plt.tight_layout()
+
+    return plt.gcf()
