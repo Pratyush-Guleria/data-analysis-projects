@@ -88,3 +88,47 @@ def plot_sub_category_sales(data):
     plt.tight_layout()
     
     return plt.gcf()   
+
+
+# Function 3
+def plot_country_sales_bar(data):
+    """
+    Plot countries sales <=80%
+    """
+    plt.figure(figsize = (12,10))
+
+    sns.barplot(
+        data = data,
+        y = "Country",
+        x = "Sales",
+        hue = "Country",
+        legend = False,
+        palette = "Set2",
+        errorbar = None,
+        width = 0.9
+    )
+
+    plt.title(
+        "Top Countries Contributing to Total Sales",
+         fontsize = 20,
+         fontweight = "bold", 
+         pad = 15
+    )
+
+    plt.xlabel(
+        "Total Sales Revenue", 
+        fontsize = 15, 
+        fontweight = "bold", 
+        labelpad = 15
+    )
+
+    plt.ylabel(
+        "Country", 
+        fontsize = 15, 
+        fontweight = "bold", 
+        labelpad = 15
+    )
+
+    plt.tight_layout()
+
+    return plt.gcf()
