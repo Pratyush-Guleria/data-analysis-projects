@@ -25,21 +25,23 @@ def sub_category_sales(df):
 
 
 # Function 3
-def get_top_sales_countries(df, threshold = 0.8):
+def get_top_sales_countries(df, threshold=0.8):
     """
     Return countries contributing up to the given cumulative sales threshold.
     """
 
-    countries_sales_df = (
+    country_sales_df = (
         df.groupby("Country")["Sales"]
-        .sum()
-        .sort_values(ascending = False)
-        .reset_index()
+          .sum()
+          .sort_values(ascending=False)
+          .reset_index()
     )
 
-    cumulative_ratio = (
-        countries_sales_df["Sales"].cumsum()
-        / countries_sales_df["Sales"].sum()
-    )
+    country_sales_df["Cum_Percentage"] = (
+        country_sales_df["Sales"].cumsum()
+        / country_sales_df["Sales"].sum()
+    ) * 100
 
-    return countries_sales_df[cumulative_ratio <= threshold]
+    return country_sales_df[
+        country_sales_df["Cum_Percentage"] <= threshold * 100
+    ]
