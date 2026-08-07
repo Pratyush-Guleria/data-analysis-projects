@@ -2,6 +2,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Function 1 
+
+# ==========================
+
+# Sales Distribution Plots
+
+# ==========================
+
 def plot_category_sales(data):
     """
     Plot total sales by category.
@@ -177,5 +184,49 @@ def plot_country_sales_pareto_line(data):
         rotation=45, 
         ha='right'
     )
+
+    return plt.gcf()
+
+
+# Function 5 
+def plot_profit_vs_sales(data):
+    """
+    Plot profit vs sales graph 
+    """
+
+    plt.figure(figsize = (15, 8))
+
+    sns.regplot(
+        data = data,
+        x = "Profit",
+        y = "Sales",
+        scatter_kws={"color": "royalblue", "alpha": 0.6, "s": 50}, 
+        line_kws={"color": "crimson", "linewidth": 2.5}
+    )
+
+    plt.title(
+        "Profit VS Sales", 
+        fontsize = 20, 
+        fontweight = "bold", 
+        pad = 15
+    )
+
+    plt.xlabel(
+        "Profit", 
+        fontsize = 20, 
+        fontweight = "bold", 
+        labelpad = 15
+    )
+
+    plt.ylabel(
+        "Sales", 
+        fontsize = 20, 
+        fontweight = "bold", 
+        labelpad = 15
+    )
+
+    plt.grid(True, linestyle = "--", alpha = 0.5)
+
+    plt.tight_layout()
 
     return plt.gcf()
